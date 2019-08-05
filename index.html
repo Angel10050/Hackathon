@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet">
     <title>MercarBots Company</title>
 </head>
 
-<body>
+<body class="miPropioBody">
     <p class="mmm"></p>
     <header class="header">
         <section class="header-section">
@@ -38,21 +39,20 @@
                             <p class="micompra">Mi Compra</p>
                         </div>
                         <div class="micarrito">
-                            <img src="https://merqueo.com/assets/img/cart-new.png" alt="imagen de carrito">
+                            <img class="carrito" src="https://merqueo.com/assets/img/cart-new.png"
+                                alt="imagen de carrito">
+                            <span class="cart-total-quantity">0</span>
                         </div>
                     </div>
                 </div>
         </section>
     </header>
-
-    <section class="losproductos">
+    <div class=" container-fluid productos">
         <h2 class="titulo-productos">Nuestro Catalogo</h2>
-
-        <div class="card-group">
+        <div class="card-columns">
 
         </div>
-
-    </section>
+    </div>
 
 </body>
 <script src="js/main.js"></script>

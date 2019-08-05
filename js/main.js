@@ -33,19 +33,23 @@ var arr = [{ "id": "f4e927ae-acd5-469a-b36e-371f16755802", "image": "https://rob
 { "id": "5ddce6fa-7193-4cef-a08b-997b9c6c32cd", "image": "https://robohash.org/log.png?size=300x300", "name": "Dinglambam", "price": 17522, "quantity": 458, "size": "3XL", "status": "completed" },
 
 { "id": "be35bc16-808b-44d8-9e74-4d64b357bceb", "image": "https://robohash.org/qui.png?size=300x300", "name": "Quotehothold", "price": 65614, "quantity": 185, "size": "M", "status": "in-progress" }]
-var mishtres = document.querySelector('card-title')
+// var mishtres = document.querySelector('card-title')
+
 let foriching = arr.forEach(myf)
 function myf(x) {
+    let mycards = document.querySelector('.card-columns')
     let creatediv = document.createElement('div')
     creatediv.className = 'card'
-    let mycards = document.querySelector('.card-group')
+
     mycards.appendChild(creatediv)
 
     let createImg = document.createElement('img')
+    createImg.className = 'card-img-top'
     createImg.src = x.image
     creatediv.appendChild(createImg)
 
-    let bodycard = document.createElement('card-body')
+    let bodycard = document.createElement('div')
+    bodycard.className = 'card-body'
     creatediv.appendChild(bodycard)
 
     let createhcinco = document.createElement('h5')
@@ -58,16 +62,25 @@ function myf(x) {
     createp.innerHTML = 'Este es mi precio ' + x.price
     bodycard.appendChild(createp)
 
+    let createabtn = document.createElement('a')
+    createabtn.href = '#'
+    createabtn.className = 'btn btn-primary'
+    createabtn.innerHTML = 'Comprar'
+    bodycard.appendChild(createabtn)
+
+    createabtn.addEventListener('click', anadiendo)
+    function anadiendo() {
+        let miCarrito = document.querySelector('.cart-total-quantity')
+        var total = x.price
+
+        miCarrito.innerHTML = total++
+
+    }
+
+
+
 
 }
-
-
-let createabtn = document.createElement('a')
-createabtn.href = 'http://www.cnn.com'
-createabtn.className = 'btn btn-primary'
-createabtn.innerHTML = 'Comprar'
-bodycard.appendChild(createabtn)
-
 
 
 
