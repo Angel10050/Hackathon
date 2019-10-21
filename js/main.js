@@ -4,6 +4,65 @@
 //         'Content-Type': 'application/json'
 //     },
 //     body: JSON.stringify({
+//         token: "GgvLrVrxQ_RebEV8aPjNsg",
+//         "data": {
+//             "_repeat": 50,
+//             "id": "cryptoUUID",
+//             "image": "personAvatar",
+//             "name": "productName",
+//             "price": "numberInt|0,100000",
+//             "quantity": "numberInt",
+//             "size": "productSize",
+//             "status": "productOrderStatus"
+//         }
+//     })
+// }).then(r => r.json())
+//     .then(data => data.forEach(x => {
+//         let mycards = document.querySelector('.card-columns')
+//         let creatediv = document.createElement('div')
+//         creatediv.className = 'card'
+
+//         mycards.appendChild(creatediv)
+
+//         let createImg = document.createElement('img')
+//         createImg.className = 'card-img-top'
+//         createImg.src = x.image
+//         creatediv.appendChild(createImg)
+
+//         let bodycard = document.createElement('div')
+//         bodycard.className = 'card-body'
+//         creatediv.appendChild(bodycard)
+
+//         let createhcinco = document.createElement('h5')
+//         createhcinco.className = 'card-title'
+//         createhcinco.innerHTML = x.name
+//         bodycard.appendChild(createhcinco)
+
+//         let createp = document.createElement('p')
+//         createp.className = 'card-text'
+//         createp.innerHTML = 'Este es mi precio ' + x.price
+//         bodycard.appendChild(createp)
+
+//         let createabtn = document.createElement('a')
+//         createabtn.href = '#'
+//         createabtn.className = 'btn btn-primary'
+//         createabtn.innerHTML = 'Comprar'
+//         bodycard.appendChild(createabtn)
+
+//         createabtn.addEventListener('click', anadiendo)
+//         function anadiendo() {
+//             let miCarrito = document.querySelector('.cart-total-quantity')
+
+//             miCarrito.innerHTML = x.price
+//         }
+//     }))
+
+// fetch('https://app.fakejson.com/q', {
+//     method: 'post',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
 //         token: "oBnzdo7RVLm0AiuXnIIwXw",
 //         "data": {
 //             "_repeat": 50,
@@ -66,22 +125,24 @@ function myf(x) {
     createabtn.href = '#'
     createabtn.className = 'btn btn-primary'
     createabtn.innerHTML = 'Comprar'
+    createabtn.value = x.price
     bodycard.appendChild(createabtn)
-
-    createabtn.addEventListener('click', anadiendo)
-    function anadiendo() {
-        let miCarrito = document.querySelector('.cart-total-quantity')
-        var total = x.price
-
-        miCarrito.innerHTML = total++
-
-    }
-
-
-
-
 }
+// aqui se suman los precios
 
+let arrFlag = []
+let boton = [...document.querySelectorAll('.btn-primary')]
+let preciosDeRobots = boton.forEach(el => el.addEventListener('click',function anadiendoPreciosDeRobots (){
+    arrFlag.push(el.value)
 
+    let sumaDeCompra = arrFlag.reduce(function(PrevVal, currentVal){
+        return PrevVal + currentVal
+    },0)
+    
+    
+    let miCarrito = document.querySelector('.cart-total-quantity')
+    miCarrito.innerHTML = sumaDeCompra
+console.log(arrFlag)
+}))
 
-
+// aqui se suman los precios
